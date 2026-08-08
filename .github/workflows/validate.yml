@@ -40,4 +40,4 @@ jobs:
       - name: Validate demonstration images
         run: >-
           python skill/create-xiaohongshu-knowledge-carousel/scripts/verify_deliverables.py
-          docs/images --expected-count 8
+          docs/images --expected-count 2

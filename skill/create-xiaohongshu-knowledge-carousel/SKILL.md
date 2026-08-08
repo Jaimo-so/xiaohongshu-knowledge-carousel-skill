@@ -12,9 +12,10 @@ Create a coherent educational carousel whose knowledge is complete, illustration
 1. Preserve every source definition, meaning, cause, mechanism, step, condition, limitation, warning, exception, and verification requirement. Never fold several distinct knowledge points into a vague summary. Add pages when the copy would otherwise be compressed.
 2. Complete visual generation and exact Chinese typesetting as one final-render operation. Do not create, review, display, or deliver a standalone wordless illustration-base stage.
 3. Keep one approved character identity, outfit, prop set, palette, print texture, safe margin, and corner-label system throughout the series.
-4. Make the fully typeset final page the first reviewable and user-visible image. Call `generatedImage` only for finished pages, never for a raw visual layer.
-5. If an image tool technically returns a temporary visual layer, consume it immediately inside the same final-render operation and delete it after composition. It must not become a named workflow step, review checkpoint, saved project asset, or deliverable.
-6. Never delete user source files unless the user explicitly asks. “Final-only delivery” means a clean deliverable directory; it does not authorize cleaning unrelated project files.
+4. Use exactly two full-page background roles in the bundled house style: vintage blue `#287F98` for the cover and old-paper yellow `#EFE4CC` for every interior page. Never rotate orange-red, mustard, blue, or other full-page interior backgrounds.
+5. Make the fully typeset final page the first reviewable and user-visible image. Call `generatedImage` only for finished pages, never for a raw visual layer.
+6. If an image tool technically returns a temporary visual layer, consume it immediately inside the same final-render operation and delete it after composition. It must not become a named workflow step, review checkpoint, saved project asset, or deliverable.
+7. Never delete user source files unless the user explicitly asks. “Final-only delivery” means a clean deliverable directory; it does not authorize cleaning unrelated project files.
 
 ## Required references
 
@@ -51,11 +52,11 @@ This order is a starting point, not a reason to remove domain-specific material.
 Write a short production specification containing:
 
 - exact canvas and safe margins;
-- palette hex codes;
+- palette hex codes and the allowed role of every color;
 - character identity and approved outfit;
 - recurring props and what each prop means;
 - top and bottom copy zones;
-- background rotation across pages;
+- fixed background roles: blue cover and paper-yellow interiors;
 - fixed corner labels;
 - texture and medium;
 - prohibitions such as text, logos, watermarks, extra people, and unsafe references.
@@ -64,7 +65,7 @@ Reuse `assets/style-anchor-cover.png` and `assets/style-anchor-interior.png` onl
 
 ### 4. Render fully typeset final pages directly
 
-Produce one distinct final page per page specification. Label each input image role in the prompt: identity anchor, style anchor, composition reference, or edit target. Require an exact 3:4 portrait, quiet copy bands, four quiet corners, and a composition that supports the exact page copy.
+Produce one distinct final page per page specification. Label each input image role in the prompt: identity anchor, style anchor, composition reference, or edit target. Require an exact 3:4 portrait, quiet copy bands, four quiet corners, and a composition that supports the exact page copy. Use vintage blue only for the cover background. Use old-paper yellow for every interior background, with blue title and explanation panels.
 
 For several pages, perform one final-render operation per page rather than using one generic prompt. Repeat all character and clothing invariants in every operation. Apply the manifest copy with `scripts/typeset_carousel.py` immediately, before exposing or saving any reviewable artifact.
 

@@ -41,22 +41,22 @@
     },
     {
       "id": "08-summary",
-      "artwork": "style-anchor-cover.png",
+      "artwork": "style-anchor-interior.png",
       "output": "08-summary-final.png",
       "header": {
         "box": [38, 92, 1042, 270],
-        "fill": "#EFE4CC",
-        "outline": "#287F98",
+        "fill": "#287F98",
+        "outline": "#25231F",
         "title": "记住：RAG 是“带资料回答”",
-        "title_fill": "#25231F",
+        "title_fill": "#EFE4CC",
         "english": "ASK · RETRIEVE · AUGMENT · GENERATE",
-        "english_fill": "#D65F45"
+        "english_fill": "#E9BC2B"
       },
       "body": {
         "type": "grid",
         "box": [38, 965, 1042, 1348],
-        "fill": "#EFE4CC",
-        "outline": "#287F98",
+        "fill": "#287F98",
+        "outline": "#25231F",
         "cards": [
           {"label": "完整流程", "text": ["提问后先检索相关片段，", "再组成上下文并依据上下文生成。"]},
           {"label": "适用场景", "text": ["知识库、产品与技术文档、", "频繁更新或需追溯来源的问答。"]},

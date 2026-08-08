@@ -15,24 +15,12 @@
 
 ## 图片演示
 
-下面是使用本 Skill 制作的完整 RAG 教学轮播。
+下面两张图锁定整个系列的颜色层级：封面固定使用复古蓝满版底色，所有正文页固定使用旧纸黄色满版底色。
 
 <table>
   <tr>
     <td><img src="docs/images/01-cover-final.png" alt="RAG 封面" width="360"></td>
     <td><img src="docs/images/02-definition-final.png" alt="RAG 定义" width="360"></td>
-  </tr>
-  <tr>
-    <td><img src="docs/images/03-why-rag-final.png" alt="为什么需要 RAG" width="360"></td>
-    <td><img src="docs/images/04-retrieval-final.png" alt="检索步骤" width="360"></td>
-  </tr>
-  <tr>
-    <td><img src="docs/images/05-augment-final.png" alt="增强步骤" width="360"></td>
-    <td><img src="docs/images/06-generate-final.png" alt="生成步骤" width="360"></td>
-  </tr>
-  <tr>
-    <td><img src="docs/images/07-indexing-final.png" alt="索引与检索机制" width="360"></td>
-    <td><img src="docs/images/08-summary-final.png" alt="RAG 总结" width="360"></td>
   </tr>
 </table>
 
@@ -170,7 +158,10 @@ python skill/create-xiaohongshu-knowledge-carousel/scripts/verify_deliverables.p
 ## 默认视觉系统
 
 - 画布：1080 × 1440，3:4 竖版。
-- 配色：复古蓝、芥末黄、旧纸米色、炭黑、橙红。
+- 封面底色：固定复古蓝 `#287F98`。
+- 正文页底色：固定旧纸黄色 `#EFE4CC`，不轮换其他满版底色。
+- 正文信息框：统一复古蓝；正文用旧纸米色；重点提示用芥末黄。
+- 辅助色：炭黑用于文字与描边；橙红只用于极少量标记，禁止作为正文页满版背景。
 - 媒介：复古出版物拼贴、软胶人物、纸张颗粒、磨损边缘和轻微套印偏移。
 - 固定人物：原创角色 Jaimo。
 - 排版：顶部标题区、中央叙事插画、底部解释区、固定四角标识。
