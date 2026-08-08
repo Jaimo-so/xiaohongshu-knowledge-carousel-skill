@@ -5,7 +5,10 @@
 - Canvas: 1080 × 1440, exact 3:4 portrait.
 - Safe margin: keep important content inside 8% of every edge.
 - Copy zones: reserve the top 19–22% for the headline and the bottom 27–32% for explanatory copy.
-- Palette: vintage blue `#287F98`, mustard `#E9BC2B`, old-paper cream `#EFE4CC`, charcoal `#25231F`, orange-red `#D65F45`.
+- Cover background: always vintage blue `#287F98`.
+- Interior background: always old-paper yellow `#EFE4CC`. Do not alternate full-page background colors across interior pages.
+- Interior panels: use vintage blue `#287F98` for the top headline panel and bottom explanation panel. Use old-paper cream text and mustard highlights inside these panels.
+- Accent roles: use mustard `#E9BC2B` for highlights, charcoal `#25231F` for text and outlines, and orange-red `#D65F45` only for small markers or warnings. Never use mustard, orange-red, blue, or another color as a full-page interior background.
 - Medium: retro 1970s–1990s printed publication collage; photorealistic soft-vinyl character mixed with hand-cut paper props; worn edges, tactile grain, subtle screenprint dots, and slight ink-offset misregistration.
 - Character: original recurring Jaimo with fluffy deep-brown short hair, oversized round black glasses, large dark eyes, rosy cheeks, youthful curious temperament, and big-head-small-body vinyl-doll proportions.
 - Outfit: dusty blue-gray work jacket, short practical collar, cream undershirt, two understated cream buttons, mustard notebook partly tucked into one pocket, black trousers, mustard-and-cream shoes; no badge, logo, or writing.
@@ -21,7 +24,7 @@ Use case: illustration-story
 Asset type: visual layer for immediate composition into one fully typeset Xiaohongshu educational carousel final page, page <ID>, exact 3:4 portrait
 Input images: Image 1 is the identity anchor; Image 2 is the series-style anchor. Ignore all visible text in the references.
 Primary request: <one concrete visual story whose objects map to the page’s knowledge>
-Scene/backdrop: <one flat palette color; graphic editorial tableau, not a realistic room>
+Scene/backdrop: use vintage blue #287F98 only when page <ID> is the cover; otherwise use old-paper yellow #EFE4CC for every interior page; graphic editorial tableau, not a realistic room
 Style/medium: retro printed-publication collage; soft-vinyl character plus hand-cut paper props; tactile grain, worn edges, screenprint dots, slight offset-print misregistration
 Composition/framing: reserve top <X>% and bottom <Y>% as quiet copy bands; keep critical objects inside 8% safe margins; keep four corners quiet
 Character invariants: <repeat face, hair, glasses, proportions, outfit, pocket prop, shoes>
@@ -55,5 +58,6 @@ For every page compare face, hair silhouette, glasses, jacket color, collar, but
 - Typeset Chinese locally after generation.
 - Use a strong Chinese headline, lighter body copy, and a contrasting caution line.
 - Keep literal English step words short and large enough to read.
-- Use opaque or nearly opaque panels when the illustration reduces contrast.
+- On interior pages, use blue headline and explanation panels over the paper-yellow page background; use cream body text and mustard caution text inside the blue panels.
+- Do not introduce a new full-page color to solve contrast. Adjust the blue panel opacity, text color, or illustration placement instead.
 - Never shrink away a definition. Move it to another page or use a labeled card grid.
