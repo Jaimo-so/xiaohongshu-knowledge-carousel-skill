@@ -1,0 +1,43 @@
+name: Validate Skill
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install validation dependencies
+        run: python -m pip install Pillow PyYAML
+      - name: Validate Skill frontmatter
+        run: |
+          python - <<'PY'
+          import re
+          from pathlib import Path
+          import yaml
+
+          path = Path("skill/create-xiaohongshu-knowledge-carousel/SKILL.md")
+          content = path.read_text(encoding="utf-8")
+          match = re.match(r"^---\n(.*?)\n---", content, re.DOTALL)
+          assert match, "Missing YAML frontmatter"
+          data = yaml.safe_load(match.group(1))
+          assert set(data) == {"name", "description"}
+          assert data["name"] == "create-xiaohongshu-knowledge-carousel"
+          assert re.fullmatch(r"[a-z0-9-]+", data["name"])
+          assert data["description"]
+          print("Skill frontmatter OK")
+          PY
+      - name: Validate example manifest
+        run: >-
+          python skill/create-xiaohongshu-knowledge-carousel/scripts/typeset_carousel.py
+          skill/create-xiaohongshu-knowledge-carousel/assets/manifest.example.json
+          --check-only
+      - name: Validate demonstration images
+        run: >-
+          python skill/create-xiaohongshu-knowledge-carousel/scripts/verify_deliverables.py
+          docs/images --expected-count 8

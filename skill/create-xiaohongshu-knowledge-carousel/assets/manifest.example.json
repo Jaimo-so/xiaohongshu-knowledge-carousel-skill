@@ -1,0 +1,69 @@
+{
+  "canvas": [1080, 1440],
+  "fonts": {
+    "cn_bold": "/System/Library/Fonts/STHeiti Medium.ttc",
+    "cn_light": "/System/Library/Fonts/STHeiti Light.ttc",
+    "latin": "/System/Library/Fonts/MarkerFelt.ttc"
+  },
+  "corners": {
+    "top_left": "2026",
+    "top_right": "AI",
+    "bottom_left": "Jaimo",
+    "bottom_right": "RAG",
+    "color": "#25231F"
+  },
+  "pages": [
+    {
+      "id": "02-definition",
+      "base": "style-anchor-interior.png",
+      "output": "02-definition-final.png",
+      "header": {
+        "box": [38, 92, 1042, 270],
+        "fill": "#287F98",
+        "outline": "#25231F",
+        "title": "RAG 是什么？",
+        "title_fill": "#EFE4CC",
+        "english": "RETRIEVAL-AUGMENTED GENERATION",
+        "english_fill": "#E9BC2B"
+      },
+      "body": {
+        "type": "lines",
+        "box": [38, 1050, 1042, 1348],
+        "fill": "#287F98",
+        "outline": "#25231F",
+        "lines": [
+          {"text": "RAG 的全称是“检索增强生成”。", "size": 31},
+          {"text": "回答前，先检索外部资料，再与问题一起交给大模型。", "size": 29},
+          {"text": "模型能临时利用较新、私有或特定领域的资料。", "size": 29},
+          {"text": "补充上下文，不代表答案天然正确。", "size": 31, "fill": "#E9BC2B", "bold": true}
+        ]
+      }
+    },
+    {
+      "id": "08-summary",
+      "base": "style-anchor-cover.png",
+      "output": "08-summary-final.png",
+      "header": {
+        "box": [38, 92, 1042, 270],
+        "fill": "#EFE4CC",
+        "outline": "#287F98",
+        "title": "记住：RAG 是“带资料回答”",
+        "title_fill": "#25231F",
+        "english": "ASK · RETRIEVE · AUGMENT · GENERATE",
+        "english_fill": "#D65F45"
+      },
+      "body": {
+        "type": "grid",
+        "box": [38, 965, 1042, 1348],
+        "fill": "#EFE4CC",
+        "outline": "#287F98",
+        "cards": [
+          {"label": "完整流程", "text": ["提问后先检索相关片段，", "再组成上下文并依据上下文生成。"]},
+          {"label": "适用场景", "text": ["知识库、产品与技术文档、", "频繁更新或需追溯来源的问答。"]},
+          {"label": "可能失败", "text": ["资料过时、检索遗漏、上下文噪声、", "权限不严或模型未忠实使用证据。"]},
+          {"label": "使用检查", "text": ["核对来源与时间，保留引用，允许说不知道；", "重要结论人工核验，私有资料设置权限。"]}
+        ]
+      }
+    }
+  ]
+}
