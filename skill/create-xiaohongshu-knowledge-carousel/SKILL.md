@@ -1,6 +1,6 @@
 ---
 name: create-xiaohongshu-knowledge-carousel
-description: Create complete Chinese Xiaohongshu educational carousel images from a topic, source document, notes, or an existing page concept. Use when Codex must plan every definition and meaning without compressing knowledge points, maintain a recurring character and visual system, generate wordless 3:4 illustrations, typeset Chinese deterministically, validate readability, and deliver only numbered final PNG pages.
+description: Create complete Chinese Xiaohongshu educational carousel images from a topic, source document, notes, or an existing page concept. Use when Codex must plan every definition and meaning without compressing knowledge points, maintain a recurring character and visual system, directly render fully typeset 3:4 final pages without a standalone wordless-base stage, validate readability, and deliver only numbered final PNG pages.
 ---
 
 # Create Xiaohongshu Knowledge Carousel
@@ -10,10 +10,10 @@ Create a coherent educational carousel whose knowledge is complete, illustration
 ## Non-negotiable rules
 
 1. Preserve every source definition, meaning, cause, mechanism, step, condition, limitation, warning, exception, and verification requirement. Never fold several distinct knowledge points into a vague summary. Add pages when the copy would otherwise be compressed.
-2. Let the image model create illustrations, not final Chinese typography. Generate wordless bases, then typeset exact copy with `scripts/typeset_carousel.py`.
+2. Complete visual generation and exact Chinese typesetting as one final-render operation. Do not create, review, display, or deliver a standalone wordless illustration-base stage.
 3. Keep one approved character identity, outfit, prop set, palette, print texture, safe margin, and corner-label system throughout the series.
-4. Do not show intermediate bases when the user asks for final effects only. Do not forward base generations with `generatedImage`; stage them privately and display the typeset finals.
-5. Keep generated bases in a temporary staging directory. Put only numbered `*-final.png` files in the deliverable directory.
+4. Make the fully typeset final page the first reviewable and user-visible image. Call `generatedImage` only for finished pages, never for a raw visual layer.
+5. If an image tool technically returns a temporary visual layer, consume it immediately inside the same final-render operation and delete it after composition. It must not become a named workflow step, review checkpoint, saved project asset, or deliverable.
 6. Never delete user source files unless the user explicitly asks. “Final-only delivery” means a clean deliverable directory; it does not authorize cleaning unrelated project files.
 
 ## Required references
@@ -62,23 +62,22 @@ Write a short production specification containing:
 
 Reuse `assets/style-anchor-cover.png` and `assets/style-anchor-interior.png` only when the user wants the bundled Jaimo/RAG house style. Treat their visible text as non-reference material.
 
-### 4. Generate wordless page bases
+### 4. Render fully typeset final pages directly
 
-Generate one distinct base per page. Label each input image role in the prompt: identity anchor, style anchor, composition reference, or edit target. Require an exact 3:4 portrait, quiet copy bands, four quiet corners, and no readable text.
+Produce one distinct final page per page specification. Label each input image role in the prompt: identity anchor, style anchor, composition reference, or edit target. Require an exact 3:4 portrait, quiet copy bands, four quiet corners, and a composition that supports the exact page copy.
 
-For several pages, issue one image-generation call per page rather than using one generic prompt. Repeat all character and clothing invariants in every call. Copy each selected output into a temporary `staging/bases/` directory.
+For several pages, perform one final-render operation per page rather than using one generic prompt. Repeat all character and clothing invariants in every operation. Apply the manifest copy with `scripts/typeset_carousel.py` immediately, before exposing or saving any reviewable artifact.
 
-When the user requests final-only output:
+The final page must be the first visible output:
 
-- do not call `generatedImage` for bases;
-- do not present base paths as deliverables;
-- continue directly to typesetting and display only final pages.
+- do not pause for a raw illustration review;
+- do not create a `bases/` deliverable or a wordless page set;
+- do not present temporary artwork paths;
+- save and display only numbered `*-final.png` pages.
 
-### 5. Typeset exact copy
+Inside the same operation, create a JSON manifest modeled on `assets/manifest.example.json`. Each line in the manifest must be intentional; do not rely on automatic paragraph summarization.
 
-Create a JSON manifest modeled on `assets/manifest.example.json`. Each line in the manifest must be intentional; do not rely on automatic paragraph summarization.
-
-Run:
+Run the deterministic final composer immediately after the visual tool returns:
 
 ```bash
 python scripts/typeset_carousel.py path/to/manifest.json --output-dir path/to/final
@@ -86,9 +85,9 @@ python scripts/typeset_carousel.py path/to/manifest.json --output-dir path/to/fi
 
 Use a Python environment that provides Pillow. In Codex desktop, load the bundled workspace dependencies when the system Python lacks Pillow.
 
-The script supports centered text panels and labeled grid cards. Use grid cards for dense mechanisms, comparisons, failure sources, or checklists. Prefer adding a page over shrinking important text below comfortable mobile-reading size.
+The script supports centered text panels and labeled grid cards. Use grid cards for dense mechanisms, comparisons, failure sources, or checklists. Prefer adding a page over shrinking important text below comfortable mobile-reading size. Remove any transient visual layer after its final page has been saved and checked.
 
-### 6. Inspect every final page
+### 5. Inspect every final page
 
 Render or view every final image. Check:
 
@@ -103,7 +102,7 @@ Render or view every final image. Check:
 
 If one page fails, make one targeted correction and recheck that page. Do not regenerate the entire series unnecessarily.
 
-### 7. Validate final-only delivery
+### 6. Validate final-only delivery
 
 Run:
 

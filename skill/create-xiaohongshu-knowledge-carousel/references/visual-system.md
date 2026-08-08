@@ -14,18 +14,19 @@
 
 When the user supplies another brand or character, replace these specifics with that system while preserving the workflow.
 
-## Base-generation prompt scaffold
+## Single-pass final-render prompt scaffold
 
 ```text
 Use case: illustration-story
-Asset type: wordless Xiaohongshu educational carousel base, page <ID>, exact 3:4 portrait
+Asset type: visual layer for immediate composition into one fully typeset Xiaohongshu educational carousel final page, page <ID>, exact 3:4 portrait
 Input images: Image 1 is the identity anchor; Image 2 is the series-style anchor. Ignore all visible text in the references.
 Primary request: <one concrete visual story whose objects map to the page’s knowledge>
 Scene/backdrop: <one flat palette color; graphic editorial tableau, not a realistic room>
 Style/medium: retro printed-publication collage; soft-vinyl character plus hand-cut paper props; tactile grain, worn edges, screenprint dots, slight offset-print misregistration
 Composition/framing: reserve top <X>% and bottom <Y>% as quiet copy bands; keep critical objects inside 8% safe margins; keep four corners quiet
 Character invariants: <repeat face, hair, glasses, proportions, outfit, pocket prop, shoes>
-Constraints: completely wordless; no readable text, letters, numbers, labels, logos, watermark, signature, arrows, speech bubbles, extra people, unrelated decoration; paper may show abstract horizontal rules only
+Final-render rule: do not create or expose a standalone illustration-base artifact. Keep model-generated copy out of the illustration region; immediately apply the exact title and body copy with the deterministic renderer, save the numbered final PNG, then remove the transient visual layer.
+Constraints: no unintended readable text, labels, logos, watermark, signature, arrows, speech bubbles, extra people, or unrelated decoration; paper props may show abstract horizontal rules only
 ```
 
 ## Visual semantics

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Deterministically typeset Chinese carousel pages from a JSON manifest."""
+"""Compose fully typeset Chinese carousel final pages from a JSON manifest."""
 
 from __future__ import annotations
 
@@ -53,14 +53,14 @@ def validate_manifest(data, root):
         raise ValueError("manifest.pages must be a non-empty list")
     ids = set()
     for page in data["pages"]:
-        for key in ("id", "base", "output", "header", "body"):
+        for key in ("id", "artwork", "output", "header", "body"):
             if key not in page:
                 raise ValueError(f"page is missing {key}: {page}")
         if page["id"] in ids:
             raise ValueError(f"duplicate page id: {page['id']}")
         ids.add(page["id"])
-        if not (root / page["base"]).exists():
-            raise FileNotFoundError(root / page["base"])
+        if not (root / page["artwork"]).exists():
+            raise FileNotFoundError(root / page["artwork"])
         if not page["output"].endswith("-final.png"):
             raise ValueError(f"output must end with -final.png: {page['output']}")
 
@@ -142,9 +142,9 @@ def draw_grid_body(draw, fonts, spec):
 
 
 def render_page(page, root, output_dir, canvas, fonts, corners):
-    base = Image.open(root / page["base"]).convert("RGB")
-    base = base.resize(tuple(canvas), Image.Resampling.LANCZOS)
-    draw = ImageDraw.Draw(base)
+    final_page = Image.open(root / page["artwork"]).convert("RGB")
+    final_page = final_page.resize(tuple(canvas), Image.Resampling.LANCZOS)
+    draw = ImageDraw.Draw(final_page)
     draw_header(draw, canvas[0], fonts, page["header"])
     body_type = page["body"].get("type", "lines")
     if body_type == "lines":
@@ -156,7 +156,7 @@ def render_page(page, root, output_dir, canvas, fonts, corners):
     draw_corners(draw, canvas[0], canvas[1], fonts, page.get("corners", corners))
     output = output_dir / page["output"]
     output.parent.mkdir(parents=True, exist_ok=True)
-    base.save(output, format="PNG", optimize=True)
+    final_page.save(output, format="PNG", optimize=True)
     return output
 
 

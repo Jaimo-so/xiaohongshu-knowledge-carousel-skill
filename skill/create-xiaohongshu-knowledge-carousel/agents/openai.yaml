@@ -1,4 +1,4 @@
 interface:
   display_name: "小红书知识轮播制作"
-  short_description: "生成带固定角色、完整知识点与可靠中文排版的教学轮播图"
-  default_prompt: "Use $create-xiaohongshu-knowledge-carousel to turn this topic into a complete, final-only Xiaohongshu educational carousel."
+  short_description: "直接生成带固定角色、完整知识点与可靠中文排版的最终轮播图"
+  default_prompt: "Use $create-xiaohongshu-knowledge-carousel to directly render this topic as a complete, fully typeset, final-only Xiaohongshu educational carousel."

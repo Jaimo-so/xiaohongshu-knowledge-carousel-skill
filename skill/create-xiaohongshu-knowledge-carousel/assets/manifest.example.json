@@ -15,7 +15,7 @@
   "pages": [
     {
       "id": "02-definition",
-      "base": "style-anchor-interior.png",
+      "artwork": "style-anchor-interior.png",
       "output": "02-definition-final.png",
       "header": {
         "box": [38, 92, 1042, 270],
@@ -41,7 +41,7 @@
     },
     {
       "id": "08-summary",
-      "base": "style-anchor-cover.png",
+      "artwork": "style-anchor-cover.png",
       "output": "08-summary-final.png",
       "header": {
         "box": [38, 92, 1042, 270],
